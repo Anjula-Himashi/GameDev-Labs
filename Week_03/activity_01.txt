@@ -1,0 +1,20 @@
+ MeshBasicMaterial
+ Does NOT react to light — it displays the color or texture as-is.
+
+ Used for flat, unlit materials like simple colors, textures, or wireframes.
+
+ Fast to render because no lighting calculations.
+
+ Good for backgrounds, UI elements, or objects that should always look flat.
+
+
+
+
+ MeshPhongMaterial
+ Reacts to lights in the scene (supports diffuse and specular reflections).
+
+ Uses Phong shading model, so it can show shiny surfaces, highlights, and shadows.
+
+ Supports reflections, shininess, and specular highlights.
+
+ Good for realistic materials like metals, plastics, or shiny surfaces.
