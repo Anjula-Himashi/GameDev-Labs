@@ -15,9 +15,16 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 // Lighting is required for bump maps to show
-const light = new THREE.DirectionalLight(0xffffff, 2);
-light.position.set(2, 2, 5);
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
+light.position.set(2, 2, 2);
 scene.add(light);
+
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.4); // soft white light
+scene.add(ambientLight);
+
+const fillLight = new THREE.DirectionalLight(0xffffff, 0.5);
+fillLight.position.set(-2, -2, -2);
+scene.add(fillLight);
 
 function addBumpMappedCube(scene) {
   // 1. Create cube geometry
@@ -25,19 +32,14 @@ function addBumpMappedCube(scene) {
 
   // 2. Load texture and bump map
   const loader = new THREE.TextureLoader();
-  const texture = loader.load(
-    "https://threejs.org/examples/textures/brick_diffuse.jpg"
-  );
-  const bumpMap = loader.load(
-    "https://threejs.org/examples/textures/brick_bump.jpg"
-  );
-  
+  const texture = loader.load("texture.jpeg");
+  const bumpMap = loader.load("bump3.png");
 
   // 3. Create material with both texture and bump map
   const material = new THREE.MeshStandardMaterial({
     map: texture,
     bumpMap: bumpMap,
-    bumpScale: 0.1, // Controls bump depth
+    bumpScale: 12, // Controls bump depth
   });
 
   // 4. Create mesh and add to scene

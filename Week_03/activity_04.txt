@@ -1,0 +1,58 @@
+TrackballControls – Adjustable Properties and Example
+-----------------------------------------------------
+
+Adjustable Properties:
+----------------------
+1. rotateSpeed
+   - Controls how fast the camera rotates with mouse drag.
+   - Default: 1.0
+
+2. zoomSpeed
+   - Controls how fast zooming happens with scroll.
+   - Default: 1.2
+
+3. panSpeed
+   - Controls how fast panning occurs when dragging.
+   - Default: 0.3
+
+4. staticMoving
+   - If true, disables inertia and smooth movement (movement stops instantly).
+   - Default: false
+
+5. dynamicDampingFactor
+   - Amount of smooth damping when staticMoving is false.
+   - Default: 0.2
+
+6. noRotate
+   - If true, disables rotation.
+
+7. noZoom
+   - If true, disables zooming.
+
+8. noPan
+   - If true, disables panning.
+
+9. minDistance
+   - Minimum zoom distance.
+
+10. maxDistance
+    - Maximum zoom distance.
+
+11. enabled
+    - Enables or disables all controls.
+
+
+Example Usage:
+--------------
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js';
+
+const controls = new TrackballControls(camera, renderer.domElement);
+
+// Customize behavior
+controls.rotateSpeed = 2.0;
+controls.zoomSpeed = 1.5;
+controls.panSpeed = 0.5;
+controls.staticMoving = true;
+controls.dynamicDampingFactor = 0.1;
+controls.noZoom = false;
+controls.noPan = false;
